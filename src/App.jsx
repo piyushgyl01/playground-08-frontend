@@ -1,11 +1,10 @@
+import { Link } from "react-router";
 
-
-function App() {
+export default function App() {
   return (
     <>
-    <h1>Ahehe</h1>
+      <main className="container"></main>
+      <h1>Ahehe</h1>
     </>
-  )
+  );
 }
-
-export default App
