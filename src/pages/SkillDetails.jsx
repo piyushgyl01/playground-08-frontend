@@ -1,9 +1,26 @@
 import { useParams } from "react-router";
 import useFetch from "../useFetch";
+import { useState } from "react";
 
 export default function SkillDetails() {
+  //STATES
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    description: "",
+    exchangeType: "",
+    sessionDetails: {
+      duration: "",
+      frequency: "",
+      platform: "",
+    },
+    prerequisites: "",
+    materialsNeeded: "",
+  });
+  
   // USEPARAMS
   const { skillID } = useParams();
+  const [showEdit, setShowEdit] = useState(false);
 
   // FETCH DATA WITH USE-FETCH
   const { data, loading, error, refetch } = useFetch(
@@ -15,7 +32,8 @@ export default function SkillDetails() {
 
   // LOADING AND ERROR STATES
   if (loading) return <div className="text-center">Loading...</div>;
-  if (error) return <div className="text-center text-danger">Error: {error}</div>;
+  if (error)
+    return <div className="text-center text-danger">Error: {error}</div>;
   if (!foundSkill) return <div className="text-center">Skill not found!</div>;
 
   return (
@@ -64,9 +82,17 @@ export default function SkillDetails() {
                 </li>
               </ul>
             </div>
+
+            <button
+              className="btn btn-primary mt-3"
+              onClick={() => setShowEdit(!showEdit)}
+            >
+              Edit Details
+            </button>
           </div>
         </div>
       </main>
+      {showEdit && <></>}
     </>
   );
 }
