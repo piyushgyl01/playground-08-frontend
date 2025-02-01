@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <>
       <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-        <div class="container-fluid">
+        <div class="container">
           <Link class="navbar-brand" to="/">
             Skillables
           </Link>
