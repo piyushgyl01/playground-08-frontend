@@ -101,7 +101,7 @@ export default function SkillListing() {
           </div>
         )}
 
-        {/* DISPLAYING JOBS */}
+        {/* DISPLAYING Skill */}
         <div className="row">
           {filteredData?.length > 0 ? (
             <>
